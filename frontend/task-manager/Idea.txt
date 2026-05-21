@@ -1,0 +1,46 @@
+
+
+
+For login and signup 
+Form would be on left side bro and on right side we will put some kind of image we will think about it later 
+
+For like main /admin/dashboard
+A little sidebar on left side man in there we will put 
+Dashboard 
+Create task 
+Manage task
+Team member
+Logout 
+
+
+and on right side
+FOR DASHBOARD
+we will have like trello like cards man 
+Acknowledge     Working     Completed     All tasks 
+Down here are the cards man 
+
+FOR MANAGE TASKS
+Here we will show all the cards man 
+and even like create tabs for all   acknowledge   working   completed 
+no dragging cards man just simple and when we click on it it will go to create-task and then at top it also have the option of delete task man 
+
+
+FOR CREATE TASK 
+/admin/create-task
+Task title 
+Desctiption
+Priority 
+Due Date
+Members 
+TODO checklist -> Add task 
+Add attachments 
+
+
+FOR TEAM MEMBER 
+It will have admin/users
+
+all team members man cards each and it will show like their counts of how much they have ackonwledged, working, completed 
+
+
+FOR LOGOUT 
+It will simply like go back to the login page simple man 

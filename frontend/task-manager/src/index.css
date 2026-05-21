@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@theme {
+  --font-display: "Poppins", sans-serif;
+  --breakpoint-3xl: 1920px;
+  --color-primary: #1368ec;
+}
+
+@layer base {
+
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    @apply bg-zinc-100 text-black;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+  html.dark body {
+    @apply bg-zinc-950 text-white;
+  }
+}
+
+
+/* LEMONMILK */
+@font-face {
+  font-family: 'LEMONMILK';
+  src: url('/fonts/LEMONMILK-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* AEONIK */
+@font-face {
+  font-family: 'AEONIK';
+  src: url('/fonts/Aeonik-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
