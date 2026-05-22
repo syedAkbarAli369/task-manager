@@ -28,7 +28,7 @@ const createTask = async (req, res) => {
       todoCheckList: JSON.parse(todoCheckList),
 
       attachments: req.file
-        ? [`/uploads/${req.file.filename}`]
+        ? [req.file.path]
         : [],
 
       createdBy: req.user._id

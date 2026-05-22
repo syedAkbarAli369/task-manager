@@ -37,7 +37,7 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      profileImageUrl: req.file ? `/uploads/${req.file.filename}` : '',
+      profileImageUrl: req.file ? [req.file.path] : '',
       role
     })
 

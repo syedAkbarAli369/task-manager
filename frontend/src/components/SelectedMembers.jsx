@@ -8,7 +8,7 @@ const SelectedMembers = ({ users, selectedMembers }) => {
       {selectedUsers.slice(0, 3).map((user, index) => {
         // DEBUG: log the actual URL being used
         const imageUrl = user.profileImageUrl
-          ? `${import.meta.env.VITE_API_URL}${user.profileImageUrl}`
+          ? user.profileImageUrl
           : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}`;
 
         return (

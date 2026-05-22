@@ -22,7 +22,7 @@ const TaskCard = ({ task, isMember = false }) => {
       let imageUrl
       // Only use server path if it's a valid /uploads/ URL
       if (member.profileImageUrl && member.profileImageUrl.startsWith('/uploads/')) {
-        imageUrl = `${import.meta.env.VITE_API_URL}${member.profileImageUrl}`
+        imageUrl = member.profileImageUrl
       } else {
         imageUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`
       }
