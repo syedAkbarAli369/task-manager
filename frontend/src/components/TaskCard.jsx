@@ -16,22 +16,28 @@ const TaskCard = ({ task, isMember = false }) => {
   }
 
   // Helper to get member display info (name + image URL)
+
   const getMemberInfo = (member) => {
     if (typeof member === 'object' && member !== null) {
       const name = member.name || 'Unknown'
-      let imageUrl
-      // Only use server path if it's a valid /uploads/ URL
-      if (member.profileImageUrl && member.profileImageUrl.startsWith('/uploads/')) {
+
+      let imageUrl;
+
+      if (member.profileImageUrl && typeof member.profileImageUrl === 'string') {
         imageUrl = member.profileImageUrl
-      } else {
-        imageUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`
       }
+      else {
+        imageUrl = `https://ui-avatars.com/api/${encodeURIComponent(name)}&background=random}`
+      }
+
       return { name, imageUrl }
     }
+
     return {
       name: 'Member',
       imageUrl: 'https://ui-avatars.com/api/?name=U&background=random'
     }
+
   }
 
   return (
@@ -49,12 +55,16 @@ const TaskCard = ({ task, isMember = false }) => {
         </span>
 
         {/* Edit */}
-        <button
-          onClick={() => navigate(`/admin/edit-task/${task._id}`)}
-          className='text-zinc-500 hover:text-black cursor-pointer  '
-        >
-          <Pencil size={18} />
-        </button>
+        {
+          isMember && (
+            <button
+              onClick={() => navigate(`/admin/edit-task/${task._id}`)}
+              className='text-zinc-500 hover:text-black cursor-pointer  '
+            >
+              <Pencil size={18} />
+            </button>
+          )
+        }
 
         {
           isMember && (
