@@ -9,7 +9,7 @@ import { createTask, deleteTask, getTaskById, getTasks, updateTask, getMyTasks }
 
 const router = express.Router()
 
-router.post('/', protect, upload.single('attachment'), createTask)
+router.post('/', protect, createTask)
 router.get('/', protect, getTasks)
 router.get('/my', protect, getMyTasks)
 router.get('/:id', protect, getTaskById)

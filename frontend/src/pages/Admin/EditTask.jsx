@@ -19,7 +19,6 @@ const EditTask = () => {
     dueDate: '',
     assignedTo: [],
     todoCheckList: [],
-    attachments: [],
   });
   const [todoInput, setTodoInput] = useState('');
   const [selectedMembers, setSelectedMembers] = useState([]);
@@ -56,7 +55,6 @@ const EditTask = () => {
           dueDate: data.dueDate ? data.dueDate.split('T')[0] : '',
           assignedTo: data.assignedTo.map(m => m._id),
           todoCheckList: data.todoCheckList || [],
-          attachments: data.attachments || [],
         });
         setSelectedMembers(data.assignedTo.map(m => m._id));
         setLoading(false);
@@ -189,21 +187,6 @@ const EditTask = () => {
             setFormData={setFormData}
           />
 
-          {/* Attachments (read-only for now) */}
-          {formData.attachments.length > 0 && (
-            <div>
-              <label className="block mb-2 font-medium">Current Attachments</label>
-              <ul className="text-sm text-blue-600">
-                {formData.attachments.map((file, idx) => (
-                  <li key={idx}>
-                    <a href={`${import.meta.env.VITE_API_URL}${file}`} target="_blank" rel="noreferrer">
-                      {file.split('/').pop()}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
 
           <button type="submit" className="bg-black text-white dark:bg-white dark:text-black p-4 rounded-xl font-semibold">
             Update Task

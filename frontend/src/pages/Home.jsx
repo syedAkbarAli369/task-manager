@@ -64,9 +64,9 @@ const Home = () => {
           </div>
 
           <div className='bg-zinc-900 dark:bg-white p-6 rounded-2xl'>
-            <h3 className='font-bold text-xl mb-3 text-white dark:text-black'>Attachments</h3>
+            <h3 className='font-bold text-xl mb-3 text-white dark:text-black'>Smart Analytics</h3>
             <p className='text-zinc-400 dark:text-black text-sm'>
-              Upload files and manage project resources.
+              Track progress, monitor deadlines, and measure team productivity.
             </p>
           </div>
 

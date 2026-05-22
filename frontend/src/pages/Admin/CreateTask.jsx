@@ -28,13 +28,6 @@ const CreateTask = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedMembers, setSelectedMembers] = useState([])
 
-  // useEffect(() => {
-  //   setFormData({
-  //     ...formData,
-  //     assignedTo: selectedMembers
-  //   })
-  // }, [selectedMembers])
-
   // Fetch users
   useEffect(() => {
     const fetchUsers = async () => {
@@ -106,11 +99,6 @@ const CreateTask = () => {
         'todoCheckList',
         JSON.stringify(formData.todoCheckList)
       )
-
-      // SINGLE FILE
-      if (fileList[0]) {
-        submitData.append('attachment', fileList[0])
-      }
 
       await axios.post(
         `${import.meta.env.VITE_API_URL}/api/tasks`,
@@ -199,12 +187,6 @@ const CreateTask = () => {
           {/* TODO CHECKLIST */}
           <TodoList todoInput={todoInput} setTodoInput={setTodoInput} formData={formData} setFormData={setFormData} />
 
-
-          {/* ATTACHMENTS */}
-          <div>
-            <label className='block mb-2 font-medium'>Add Attachments</label>
-            <input type='file' multiple onChange={handleFileChange} className='w-full border p-3 rounded-xl' />
-          </div>
 
           {/* BUTTON */}
           <button type='submit' className='bg-black text-white dark:bg-white dark:text-black p-4 rounded-xl font-semibold'>Create Task</button>

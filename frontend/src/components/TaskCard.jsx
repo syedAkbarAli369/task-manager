@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { Paperclip, Pencil } from 'lucide-react'
+import { Pencil } from 'lucide-react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 const TaskCard = ({ task, isMember = false }) => {
@@ -56,7 +56,7 @@ const TaskCard = ({ task, isMember = false }) => {
 
         {/* Edit */}
         {
-          isMember && (
+          !isMember && (
             <button
               onClick={() => navigate(`/admin/edit-task/${task._id}`)}
               className='text-zinc-500 hover:text-black cursor-pointer  '
@@ -66,7 +66,7 @@ const TaskCard = ({ task, isMember = false }) => {
           )
         }
 
-        {
+        {/* {
           isMember && (
             <button
               onClick={() => navigate(`/admin/edit-task/${task._id}`)}
@@ -75,7 +75,7 @@ const TaskCard = ({ task, isMember = false }) => {
               <Pencil size={18} />
             </button>
           )
-        }
+        } */}
 
 
       </div>
@@ -149,20 +149,6 @@ const TaskCard = ({ task, isMember = false }) => {
           )}
         </div>
 
-        {/* ATTACHMENTS */}
-        {task.attachments?.[0] && (
-          <div>
-            <a
-              href={`${import.meta.env.VITE_API_URL}${task.attachments[0]}`}
-              target='_blank'
-              rel='noreferrer'
-              className='flex items-center gap-1 text-sm text-blue-600'
-            >
-              <Paperclip size={16} />
-              Attached File
-            </a>
-          </div>
-        )}
       </div>
     </div>
   )

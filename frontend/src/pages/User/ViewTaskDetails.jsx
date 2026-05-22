@@ -73,9 +73,6 @@ const ViewTaskDetails = () => {
             {task.priority}
           </div>
 
-          {/* <div className='bg-blue-100 px-4 py-2 rounded-xl'>
-            {task.status}
-          </div> */}
 
           <select value={task.status}
             onChange={async (e) => {
@@ -228,29 +225,6 @@ const ViewTaskDetails = () => {
 
         </div>
 
-        {/* ATTACHMENT */}
-        {
-          task.attachments?.[0] && (
-
-            <div>
-
-              <h2 className='font-bold mb-3'>
-                Attachment
-              </h2>
-
-              <a
-                href={`${import.meta.env.VITE_API_URL}${task.attachments[0]}`}
-                target='_blank'
-                rel='noreferrer'
-                className='text-blue-600 underline'
-              >
-                Open Attachment
-              </a>
-
-            </div>
-
-          )
-        }
 
       </div>
 
