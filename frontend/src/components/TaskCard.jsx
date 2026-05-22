@@ -22,7 +22,7 @@ const TaskCard = ({ task, isMember = false }) => {
       let imageUrl
       // Only use server path if it's a valid /uploads/ URL
       if (member.profileImageUrl && member.profileImageUrl.startsWith('/uploads/')) {
-        imageUrl = `http://localhost:8000${member.profileImageUrl}`
+        imageUrl = `${import.meta.env.VITE_API_URL}${member.profileImageUrl}`
       } else {
         imageUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`
       }
@@ -143,7 +143,7 @@ const TaskCard = ({ task, isMember = false }) => {
         {task.attachments?.[0] && (
           <div>
             <a
-              href={`http://localhost:8000${task.attachments[0]}`}
+              href={`${import.meta.env.VITE_API_URL}${task.attachments[0]}`}
               target='_blank'
               rel='noreferrer'
               className='flex items-center gap-1 text-sm text-blue-600'

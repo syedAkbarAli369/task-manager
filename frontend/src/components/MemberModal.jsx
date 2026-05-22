@@ -54,7 +54,7 @@ const MemberModal = ({ users, selectedMembers, setSelectedMembers, isOpen, onClo
                 <img
                   src={
                     user.profileImageUrl && !user.profileImageUrl.startsWith('blob:')
-                      ? `http://localhost:8000${user.profileImageUrl}`
+                      ? `${import.meta.env.VITE_API_URL}${user.profileImageUrl}`
                       : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random`
                   }
                   onError={(e) => {

@@ -56,7 +56,7 @@ const Team = () => {
                   <img
                     src={
                       member.profileImageUrl && !member.profileImageUrl.startsWith('blob:')
-                        ? `http://localhost:8000${member.profileImageUrl}`
+                        ? `${import.meta.env.VITE_API_URL}${member.profileImageUrl}`
                         : `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`
                     }
                     onError={(e) => {

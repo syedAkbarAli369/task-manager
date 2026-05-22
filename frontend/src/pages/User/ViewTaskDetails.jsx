@@ -142,7 +142,7 @@ const ViewTaskDetails = () => {
                   <img
                     src={
                       member.profileImageUrl && !member.profileImageUrl.startsWith('blob:') ?
-                        `http://localhost:8000${member.profileImageUrl}` : `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`
+                        `${import.meta.env.VITE_API_URL}${member.profileImageUrl}` : `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`
                     }
                     onError={(e) => {
                       e.target.onerror = null;
@@ -195,7 +195,7 @@ const ViewTaskDetails = () => {
                         const user = JSON.parse(localStorage.getItem('user'))
 
                         await axios.put(
-                          `http://localhost:8000/api/tasks/${task._id}`, {
+                          `${import.meta.env.VITE_API_URL}/api/tasks/${task._id}`, {
                           todoCheckList: updatedCheckList
                         },
                           {
@@ -239,7 +239,7 @@ const ViewTaskDetails = () => {
               </h2>
 
               <a
-                href={`http://localhost:8000${task.attachments[0]}`}
+                href={`${import.meta.env.VITE_API_URL}${task.attachments[0]}`}
                 target='_blank'
                 rel='noreferrer'
                 className='text-blue-600 underline'

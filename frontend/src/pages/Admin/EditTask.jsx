@@ -196,7 +196,7 @@ const EditTask = () => {
               <ul className="text-sm text-blue-600">
                 {formData.attachments.map((file, idx) => (
                   <li key={idx}>
-                    <a href={`http://localhost:8000${file}`} target="_blank" rel="noreferrer">
+                    <a href={`${import.meta.env.VITE_API_URL}${file}`} target="_blank" rel="noreferrer">
                       {file.split('/').pop()}
                     </a>
                   </li>
