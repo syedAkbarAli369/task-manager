@@ -66,17 +66,6 @@ const TaskCard = ({ task, isMember = false }) => {
           )
         }
 
-        {/* {
-          isMember && (
-            <button
-              onClick={() => navigate(`/admin/edit-task/${task._id}`)}
-              className='text-zinc-500 hover:text-black cursor-pointer'
-            >
-              <Pencil size={18} />
-            </button>
-          )
-        } */}
-
 
       </div>
 

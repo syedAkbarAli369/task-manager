@@ -22,11 +22,8 @@ const createTask = async (req, res) => {
       description,
       priority,
       dueDate,
-
-      assignedTo: JSON.parse(assignedTo),
-
-      todoCheckList: JSON.parse(todoCheckList),
-
+      assignedTo: assignedTo || [],
+      todoCheckList: todoCheckList || [],
       createdBy: req.user._id
     })
 

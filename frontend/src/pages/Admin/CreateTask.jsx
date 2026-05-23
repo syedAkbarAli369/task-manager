@@ -20,11 +20,10 @@ const CreateTask = () => {
     dueDate: '',
     assignedTo: [],
     todoCheckList: [],
-    attachments: [],
   })
 
   const [todoInput, setTodoInput] = useState('')
-  const [fileList, setFileList] = useState([])
+  // const [fileList, setFileList] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedMembers, setSelectedMembers] = useState([])
 
@@ -71,55 +70,53 @@ const CreateTask = () => {
   }
 
   // handle file change
-  const handleFileChange = (e) => {
-    setFileList(Array.from(e.target.files))
-  }
+  // const handleFileChange = (e) => {
+  //   setFileList(Array.from(e.target.files))
+  // }
 
   // Submit 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
+      const user = JSON.parse(localStorage.getItem('user'));
 
-      const user = JSON.parse(localStorage.getItem('user'))
+      // Send as regular JSON (not FormData)
+      const submitData = {
+        title: formData.title,
+        description: formData.description,
+        priority: formData.priority,
+        dueDate: formData.dueDate,
+        assignedTo: selectedMembers,
+        todoCheckList: formData.todoCheckList,
+      };
 
-      const submitData = new FormData()
-
-      submitData.append('title', formData.title)
-      submitData.append('description', formData.description)
-      submitData.append('priority', formData.priority)
-      submitData.append('dueDate', formData.dueDate)
-
-      submitData.append(
-        'assignedTo',
-        JSON.stringify(selectedMembers)
-      )
-
-      submitData.append(
-        'todoCheckList',
-        JSON.stringify(formData.todoCheckList)
-      )
-
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/tasks`,
-        submitData,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-            'Content-Type': 'multipart/form-data'
-          }
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/tasks`, submitData, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          'Content-Type': 'application/json'
         }
-      )
+      });
 
-      toast.success('Task created successfully')
+      toast.success('Task created successfully');
+
+      // Optional: reset form
+      setFormData({
+        title: '',
+        description: '',
+        priority: 'Medium',
+        dueDate: '',
+        assignedTo: [],
+        todoCheckList: [],
+      });
+      setSelectedMembers([]);
+      setTodoInput('');
 
     } catch (error) {
-
-      console.log(error)
-
-      toast.error('Failed to create task')
+      console.error(error);
+      toast.error(error.response?.data?.message || 'Failed to create task');
     }
-  }
+  };
 
   return (
     <AdminLayout>
