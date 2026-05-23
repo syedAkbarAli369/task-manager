@@ -123,7 +123,7 @@ const SignUp = () => {
               className='border p-3'
             />
           ))}
-          <button className='bg-black text-white p-3 rounded-md dark:bg-white dark:text-black'>Signup</button>
+          <button className='bg-black text-white p-3 rounded-md dark:bg-white dark:text-black cursor-pointer'>Signup</button>
         </form>
 
         <p className='pt-3'>

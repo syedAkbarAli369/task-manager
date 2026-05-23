@@ -188,7 +188,7 @@ const EditTask = () => {
           />
 
 
-          <button type="submit" className="bg-black text-white dark:bg-white dark:text-black p-4 rounded-xl font-semibold">
+          <button type="submit" className="bg-black text-white dark:bg-white dark:text-black p-4 rounded-xl font-semibold cursor-pointer">
             Update Task
           </button>
         </form>

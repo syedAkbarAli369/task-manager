@@ -85,7 +85,7 @@ const Login = () => {
           />
 
           <button
-            className='bg-black text-white p-3 dark:bg-white dark:text-black'
+            className='bg-black text-white p-3 dark:bg-white dark:text-black cursor-pointer'
           >
             Login
           </button>

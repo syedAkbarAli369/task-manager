@@ -7,7 +7,7 @@ const Home = () => {
 
 
   return (
-    <div className=' bg-white text-black dark:bg-zinc-900 dark:text-white flex p-9 overflow-hidden'>
+    <div className=' bg-white text-black dark:bg-zinc-900 dark:text-white flex p-9 overflow-hidden min-h-screen'>
 
       <div className='max-w-5xl mx-auto text-center'
         style={{ fontFamily: 'AEONIK' }}

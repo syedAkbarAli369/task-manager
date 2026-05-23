@@ -144,7 +144,7 @@ const CreateTask = () => {
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
             <div>
               <label className='block mb-2 font-medium'>Priority</label>
-              <select name='priority' value={formData.priority} onChange={handleChange} className='w-full border p-3 rounded-xl'>
+              <select name='priority' value={formData.priority} onChange={handleChange} className='w-full border p-3 rounded-xl dark:bg-black'>
                 {['Low', 'Medium', 'High'].map(p => <option key={p} value={p}>{p}</option>)}
               </select>
             </div>
@@ -186,7 +186,7 @@ const CreateTask = () => {
 
 
           {/* BUTTON */}
-          <button type='submit' className='bg-black text-white dark:bg-white dark:text-black p-4 rounded-xl font-semibold'>Create Task</button>
+          <button type='submit' className='bg-black text-white dark:bg-white dark:text-black p-4 rounded-xl font-semibold cursor-pointer'>Create Task</button>
         </form>
       </div>
     </AdminLayout>
